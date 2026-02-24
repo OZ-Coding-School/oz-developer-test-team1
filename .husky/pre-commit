@@ -1,3 +1,6 @@
 #!/usr/bin/env sh
 cd developer-test-template
-pnpm lint-staged
+pnpm lint-staged || {
+  echo "❌ Husky - Pre-Commit 에러 발생!"
+  exit 1
+}
