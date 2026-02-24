@@ -1,0 +1,2 @@
+cd developer-test-template
+pnpm commitlint --edit "$1"
