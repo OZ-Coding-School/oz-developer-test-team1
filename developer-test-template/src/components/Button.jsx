@@ -10,8 +10,8 @@ const Button = ({ label, size, variant, onClick }) => {
     variant === 'primary'
       ? 'bg-primary text-white' // 메인 핑크 (시작하기, 결과 공유하기)
       : variant === 'secondary'
-        ? 'bg-secondary text-primary' // 연한 핑크
-        : 'bg-sub text-gray-700'; // 질문 선택지용
+        ? 'bg-background text-primary' // 연한 핑크
+        : 'bg-progress-track text-text-body'; // 질문 선택지용
 
   return (
     <button
