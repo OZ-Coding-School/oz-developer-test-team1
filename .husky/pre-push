@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+cd developer-test-template
+pnpm build || {
+  echo "❌ Husky - Pre-Push 에러 발생!"
+  exit 1
+}
