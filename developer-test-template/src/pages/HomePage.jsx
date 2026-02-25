@@ -4,8 +4,8 @@ import Button from '../components/Button';
 export default function HomePage() {
   return (
     /* 배경색과 중앙 정렬 레이아웃 */
-    <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#FDF2F8]">
-      <div className="text-2xl font-bold text-[#1E2939]">
+    <div className="bg-background flex min-h-screen flex-col items-center justify-center gap-6">
+      <div className="text-text-heading text-2xl font-bold">
         나는 어떤 개발자일까??
       </div>
 
