@@ -1,6 +1,6 @@
 import React from 'react';
 
-// 버튼 컴포넌트
+// 버튼 컴포넌트 (최종 수정)
 const Button = ({ label, size, variant, onClick }) => {
   // 가로 크기 설정
   const widthClass = size === 'small' ? 'w-[262px]' : 'w-[384px]';
