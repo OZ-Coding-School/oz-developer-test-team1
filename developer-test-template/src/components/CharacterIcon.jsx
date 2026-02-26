@@ -41,7 +41,7 @@ function CharacterIcon({ type = 'hamster' }) {
   };
 
   return (
-    <div className="bg-background h-32 w-fit text-center">
+    <div className="h-32 w-fit text-center">
       <img src={getSrc()} alt={imgAlt} className="h-full" />
     </div>
   );
