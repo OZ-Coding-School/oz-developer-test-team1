@@ -2,8 +2,7 @@ import './App.css';
 import Badge from './components/Badge';
 import Icon from './components/Icon';
 import HomePage from './pages/HomePage';
-import { BrowserRouter, Routes, Route } from 'react-router';
-import QuestionPage from './pages/QuestionPage';
+import { BrowserRouter, Router, Route } from 'react-router';
 
 function App() {
   return (
