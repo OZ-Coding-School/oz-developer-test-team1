@@ -2,10 +2,11 @@ import './App.css';
 import Badge from './components/Badge';
 import Icon from './components/Icon';
 import HomePage from './pages/HomePage';
+import { BrowserRouter, Routes, Route } from 'react-router';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <HomePage />
       <Badge tags={['react', 'css']} />
       {/*뱃지영역*/}
@@ -17,7 +18,7 @@ function App() {
         <Icon name={'share'} />
       </div>
       {/*아이콘 영역*/}
-    </>
+    </BrowserRouter>
   );
 }
 

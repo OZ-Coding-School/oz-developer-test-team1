@@ -1,16 +1,19 @@
 import React from 'react';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router';
-import Card from '../components/Card';
 
 export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-background flex min-h-screen items-center justify-center">
-      <div className="h-[524px] w-[326.02px]">
-        <Card className="flex flex-col items-center overflow-hidden p-0">
-          <div className="flex h-[228px] w-full items-center justify-center">
+    /* 배경 */
+    <div className="bg-background flex min-h-screen items-center justify-center p-4">
+      {/* 메인 카드 컨테이너 */}
+      <div className="relative flex h-[524px] w-[326.02px] flex-col items-center justify-between overflow-hidden rounded-[24px] bg-white p-[32px] shadow-2xl">
+        {/* 상단 구역 */}
+        <div className="flex w-full flex-col items-center">
+          {/* 캐릭터 이미지 */}
+          <div className="flex h-[180px] items-center justify-center">
             <img
               src="/src/assets/Icon.webp"
               alt="Hamster"
@@ -18,37 +21,41 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="w-full text-center">
-            <h1 className="text-text-heading text-[24px] leading-[36px] font-medium tracking-[0.4px]">
+          {/* 제목 및 설명 */}
+          <div className="text-center">
+            <h1 className="text-text-heading text-[24px] leading-tight font-bold">
               나는 어떤 개발자일까 ?
             </h1>
-            <p className="text-text-muted mt-1 text-[16px] leading-[24px] font-normal tracking-[-0.31px]">
+            <p className="text-text-muted mt-2 text-[16px]">
               햄스터 개발자 유형 테스트
             </p>
           </div>
 
-          <div className="mt-8 flex h-[72px] w-[262.02px] items-center justify-center rounded-[14px] bg-[#FDF2F8] px-4">
-            <p className="text-center text-[14px] leading-[20px] font-semibold text-[#EF6D8A]">
+          {/* 안내 박스 */}
+          <div className="bg-background mt-8 flex h-[72px] w-full items-center justify-center rounded-[14px]">
+            <p className="text-primary text-center text-[14px] leading-tight font-semibold">
               ✨ 5개의 질문으로 알아보는
               <br />
               나의 개발자 성향
             </p>
           </div>
+        </div>
 
-          <div className="mt-4 h-[48px] w-[262.02px]">
-            <Button
-              label="시작하기"
-              variant="primary"
-              onClick={() => navigate('/question')}
-            />
-          </div>
+        {/* 하단 구역 */}
+        <div className="mb-2 flex w-full flex-col items-center gap-8">
+          {/* 시작하기 버튼 */}
+          <Button
+            label="시작하기"
+            variant="primary"
+            size="small"
+            onClick={() => navigate('/question')}
+          />
 
-          <div className="mt-auto mb-[32px] flex w-full justify-center">
-            <p className="text-text-muted text-[12px] font-normal tracking-widest uppercase">
-              made with ❤️ Ozcoding
-            </p>
-          </div>
-        </Card>
+          {/* 푸터 로고 */}
+          <p className="text-text-muted text-[10px] font-normal tracking-widest uppercase">
+            made with ❤️ Ozcoding
+          </p>
+        </div>
       </div>
     </div>
   );
