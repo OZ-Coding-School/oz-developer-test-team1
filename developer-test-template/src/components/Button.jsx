@@ -8,9 +8,9 @@ const Button = ({ label, size, variant, onClick }) => {
       case 'primary':
         return 'bg-primary text-white shadow-[0_10px_15px_0_rgba(0,0,0,0.12)] rounded-full';
       case 'secondary':
-        return 'bg-background text-primary rounded-[16px]';
+        return 'bg-background text-primary rounded-2xl';
       default:
-        return 'bg-background text-text-body shadow-[0_1px_3px_0_rgba(0,0,0,0.20)] rounded-[16px]';
+        return 'bg-background text-text-body shadow-[0_1px_3px_0_rgba(0,0,0,0.20)] rounded-2xl';
     }
   };
 

@@ -3,6 +3,7 @@ import Badge from './components/Badge';
 import Icon from './components/Icon';
 import HomePage from './pages/HomePage';
 import { BrowserRouter, Routes, Route } from 'react-router';
+import QuestionPage from './pages/QuestionPage';
 
 function App() {
   return (

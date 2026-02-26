@@ -1,100 +1,99 @@
-import React from 'react';
-import Button from '../components/Button';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import Card from '../components/Card';
+import ProgressBar from '../components/ProgressBar';
+import Button from '../components/Button';
 
-export default function HomePage() {
+const questionList = [
+  {
+    id: 1,
+    text: '새로운 프로젝트를 시작할 때\n가장 먼저 하는 일은?',
+    options: [
+      '사용자가 볼 화면부터 디자인한다',
+      '데이터베이스 구조를 먼저 설계한다',
+    ],
+  },
+  {
+    id: 2,
+    text: '코드 에러가 발생했을 때\n나의 대처 방식은?',
+    options: ['구글링과 AI의 도움을 받는다', '공식 문서와 로그를 끝까지 판다'],
+  },
+  {
+    id: 3,
+    text: '협업 도중 의견 충돌이 생기면?',
+    options: [
+      '논리적인 근거로 팀원을 설득한다',
+      '팀 전체의 분위기를 먼저 살핀다',
+    ],
+  },
+  {
+    id: 4,
+    text: '작성한 코드가 잘 돌아간다면?',
+    options: [
+      '더 효율적인 코드로 리팩토링한다',
+      '다음 기능을 구현하러 바로 떠난다',
+    ],
+  },
+  {
+    id: 5,
+    text: '마감 기한이 코앞으로 다가왔다면?',
+    options: [
+      '밤을 새워서라도 완벽하게 끝낸다',
+      '기능 우선순위를 정해 핵심만 구현한다',
+    ],
+  },
+];
+
+export default function QuestionPage() {
+  const [currentStep, setCurrentStep] = useState(1);
   const navigate = useNavigate();
+  const currentData = questionList[currentStep - 1];
+
+  const handleNext = () => {
+    if (currentStep < 5) {
+      setCurrentStep((prev) => prev + 1);
+    } else {
+      navigate('/result');
+    }
+  };
 
   return (
-    /* 배경색 */
-    <div className="bg-background flex min-h-screen flex-col items-center justify-center p-10">
-      {/* 파란색 테두리설정 */}
-      <Card
-        style={{
-          width: '326.02px',
-          height: '524px',
-          padding: '32px',
-          backgroundColor: '#FFFFFF',
-          boxShadow: '0px 25px 50px -12px rgba(0, 0, 0, 0.25)',
-        }}
-        className="flex flex-col items-center rounded-[24px] bg-white"
-      >
-        {/* 캐릭터 이미지 */}
-        <div
-          style={{ width: '262.02px', height: '228px' }}
-          className="flex items-center justify-center"
-        >
+    <div className="bg-background flex min-h-screen items-center justify-center p-4">
+      <Card className="flex h-[600px] w-[448px] flex-col justify-between p-10">
+        <ProgressBar value={currentStep} max={5} />
+
+        <div className="flex flex-1 flex-col items-center justify-center gap-10">
           <img
             src="/src/assets/Icon.webp"
             alt="Hamster"
-            style={{ width: '128px', height: '128px' }}
-            className="object-contain"
+            className="h-[130px] w-[130px] object-contain"
           />
+
+          <div className="space-y-3 text-center">
+            <span className="text-primary block text-2xl font-bold">
+              Q{currentStep}.
+            </span>
+            <h2 className="text-text-heading text-2xl leading-relaxed font-bold whitespace-pre-wrap">
+              {currentData.text}
+            </h2>
+          </div>
         </div>
 
-        {/* 텍스트 영역 */}
-        <div style={{ width: '262.02px' }} className="text-center">
-          <h1
-            style={{ width: '262.02px', height: '36px' }}
-            className="text-text-heading text-[22px] font-bold"
-          >
-            나는 어떤 개발자일까 ?
-          </h1>
-          <p
-            style={{ width: '262.02px', height: '24px' }}
-            className="text-text-muted text-[14px] font-medium"
-          >
-            햄스터 개발자 유형 테스트
-          </p>
+        <div className="mb-4 flex w-full flex-col gap-4">
+          {currentData.options.map((option, index) => (
+            <Button
+              key={index}
+              label={option}
+              variant="default"
+              className="py-5 text-base"
+              onClick={handleNext}
+            />
+          ))}
         </div>
 
-        {/* 설명 영역 */}
-        <div
-          style={{
-            width: '262.02px',
-            height: '72px',
-            backgroundColor: '#FDF2F8',
-            borderRadius: '14px',
-          }}
-          className="flex items-center justify-center px-[16px]"
-        >
-          <p className="text-primary text-center text-[13px] leading-relaxed font-semibold">
-            ✨ 5개의 질문으로 알아보는
-            <br />
-            나의 개발자 성향
-          </p>
-        </div>
-
-        {/* 시작하기 버튼*/}
-        <div
-          style={{
-            width: '262.02px',
-            height: '48px',
-          }}
-          className="flex flex-col items-center"
-        >
-          <Button
-            label="시작하기"
-            size="small"
-            variant="primary"
-            className="h-full w-full"
-            onClick={() => navigate('/question')}
-          />
-        </div>
-
-        {/* 푸터 영역 */}
-        <div
-          style={{
-            width: '262.02px',
-            height: '16px',
-          }}
-          className="flex items-center justify-center"
-        >
-          <p className="text-text-muted text-[10px] font-medium tracking-widest uppercase">
-            made with ❤️ Ozcoding
-          </p>
-        </div>
+        <p className="text-text-muted text-center text-xs">
+          made with ❤️ Ozcoding
+        </p>
       </Card>
     </div>
   );
