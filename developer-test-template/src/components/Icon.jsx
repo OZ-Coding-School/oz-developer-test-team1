@@ -1,6 +1,6 @@
-import { ReactComponent as IconStart } from '../assets/icons/icon-start.svg';
-import { ReactComponent as IconRefresh } from '../assets/icons/icon-refresh.svg';
-import { ReactComponent as IconShare } from '../assets/icons/icon-share.svg';
+import IconStart from '../assets/icons/icon-start.svg?react';
+import IconRefresh from '../assets/icons/icon-refresh.svg?react';
+import IconShare from '../assets/icons/icon-share.svg?react';
 
 function Icon({ name }) {
   if (name === 'start') return <IconStart />;
