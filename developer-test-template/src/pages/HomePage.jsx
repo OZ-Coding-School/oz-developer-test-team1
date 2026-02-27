@@ -9,15 +9,15 @@ export default function HomePage() {
     /* 배경 */
     <div className="bg-background flex min-h-screen items-center justify-center p-4">
       {/* 메인 카드 컨테이너 */}
-      <div className="relative flex h-[524px] w-[326.02px] flex-col items-center justify-between overflow-hidden rounded-3xl bg-white p-[32px] shadow-2xl">
+      <div className="relative flex h-131 w-[326.02px] flex-col items-center justify-between overflow-hidden rounded-3xl bg-white p-8 shadow-2xl">
         {/* 상단 구역 */}
         <div className="flex w-full flex-col items-center">
           {/* 캐릭터 이미지 */}
-          <div className="flex h-[180px] items-center justify-center">
+          <div className="flex h-45 items-center justify-center">
             <img
               src="/src/assets/Icon.webp"
               alt="Hamster"
-              className="h-[128px] w-[128px] object-contain"
+              className="h-32 w-32 object-contain"
             />
           </div>
 
@@ -34,7 +34,7 @@ export default function HomePage() {
           </div>
 
           {/* 안내 박스 */}
-          <div className="bg-background mt-8 flex h-[72px] w-full items-center justify-center rounded-[14px]">
+          <div className="bg-background mt-8 flex h-18 w-full items-center justify-center rounded-[14px]">
             {/* 안내 문구 */}
             <p className="text-primary text-center text-sm leading-tight font-semibold">
               ✨ 5개의 질문으로 알아보는

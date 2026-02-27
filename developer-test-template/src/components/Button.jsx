@@ -17,7 +17,7 @@ const Button = ({ label, size, variant, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`${widthClass} ${getVariantClass()} flex h-12 shrink-0 cursor-pointer items-center justify-center text-lg font-bold transition-all active:scale-95`}
+      className={`${widthClass} ${getVariantClass()} flex shrink-0 cursor-pointer px-6 py-4 text-base font-medium transition-all active:scale-95`}
     >
       <span>{label}</span>
     </button>
