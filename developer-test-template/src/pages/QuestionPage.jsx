@@ -20,14 +20,14 @@ export default function QuestionPage() {
 
   return (
     <div className="bg-background flex min-h-screen items-center justify-center p-4">
-      <Card className="flex h-[600px] w-[448px] flex-col justify-between p-10">
+      <Card className="flex h-150 w-md flex-col justify-between p-10">
         <ProgressBar value={currentStep} max={5} />
 
         <div className="flex flex-1 flex-col items-center justify-center gap-10">
           <img
             src="/src/assets/Icon.webp"
             alt="Hamster"
-            className="h-[130px] w-[130px] object-contain"
+            className="h-32.5 w-32.5 object-contain"
           />
 
           <div className="space-y-3 text-center">
