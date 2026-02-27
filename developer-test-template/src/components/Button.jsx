@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = ({ label, size, variant, onClick }) => {
+const Button = ({ label, size, variant, onClick, className, children }) => {
   const widthClass = size === 'small' ? 'w-[262px]' : 'w-[384px]';
 
   const getVariantClass = () => {
@@ -17,8 +17,9 @@ const Button = ({ label, size, variant, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`${widthClass} ${getVariantClass()} flex shrink-0 cursor-pointer px-6 py-4 text-base font-medium transition-all active:scale-95`}
+      className={`${widthClass} ${getVariantClass()} flex shrink-0 cursor-pointer px-6 py-4 text-base font-medium transition-all active:scale-95 ${className}`}
     >
+      {children}
       <span>{label}</span>
     </button>
   );
