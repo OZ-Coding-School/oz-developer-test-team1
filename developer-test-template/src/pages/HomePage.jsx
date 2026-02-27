@@ -1,29 +1,64 @@
 import React from 'react';
 import Button from '../components/Button';
+import { useNavigate } from 'react-router';
 
 export default function HomePage() {
+  const navigate = useNavigate();
+
   return (
-    /* 배경색과 중앙 정렬 레이아웃 */
-    <div className="flex min-h-screen flex-col items-center justify-center gap-10 bg-white p-10">
-      <h1 className="text-text-heading text-2xl font-bold">
-        나는 어떤 개발자일까 ?
-      </h1>
+    /* 배경 */
+    <div className="bg-background flex min-h-screen items-center justify-center p-4">
+      {/* 메인 카드 컨테이너 */}
+      <div className="relative flex h-[524px] w-[326.02px] flex-col items-center justify-between overflow-hidden rounded-3xl bg-white p-[32px] shadow-2xl">
+        {/* 상단 구역 */}
+        <div className="flex w-full flex-col items-center">
+          {/* 캐릭터 이미지 */}
+          <div className="flex h-[180px] items-center justify-center">
+            <img
+              src="/src/assets/Icon.webp"
+              alt="Hamster"
+              className="h-[128px] w-[128px] object-contain"
+            />
+          </div>
 
-      {/* Primary 버튼 */}
-      <div className="flex flex-col items-center gap-4">
-        <Button label="시작하기" size="small" variant="primary" />
-        <Button label="결과 공유하기" size="medium" variant="primary" />
-      </div>
+          {/* 제목 및 설명 */}
+          <div className="text-center">
+            {/* 제목 */}
+            <h1 className="text-text-heading text-2xl leading-tight font-bold">
+              나는 어떤 개발자일까 ?
+            </h1>
+            {/* 설명 */}
+            <p className="text-text-muted mt-2 text-base">
+              햄스터 개발자 유형 테스트
+            </p>
+          </div>
 
-      {/* Secondary 버튼 */}
-      <div className="flex flex-col items-center">
-        <Button label="다시 테스트하기" size="medium" variant="secondary" />
-      </div>
+          {/* 안내 박스 */}
+          <div className="bg-background mt-8 flex h-[72px] w-full items-center justify-center rounded-[14px]">
+            {/* 안내 문구 */}
+            <p className="text-primary text-center text-sm leading-tight font-semibold">
+              ✨ 5개의 질문으로 알아보는
+              <br />
+              나의 개발자 성향
+            </p>
+          </div>
+        </div>
 
-      {/* Option 버튼 */}
-      <div className="flex flex-col gap-3">
-        <Button label="사용자가 볼 화면부터 디자인한다" size="medium" />
-        <Button label="데이터베이스 구조를 먼저 설계한다" size="medium" />
+        {/* 하단 구역 */}
+        <div className="mb-2 flex w-full flex-col items-center gap-8">
+          {/* 시작하기 버튼 */}
+          <Button
+            label="시작하기"
+            variant="primary"
+            size="small"
+            onClick={() => navigate('/question')}
+          />
+
+          {/* 푸터 로고 */}
+          <p className="text-text-muted text-[10px] font-normal tracking-widest uppercase">
+            made with ❤️ Ozcoding
+          </p>
+        </div>
       </div>
     </div>
   );
