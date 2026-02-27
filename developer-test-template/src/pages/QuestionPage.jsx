@@ -4,6 +4,7 @@ import Card from '../components/Card';
 import ProgressBar from '../components/ProgressBar';
 import Button from '../components/Button';
 import questionList from '../mocks/data/question';
+import CharacterIcon from '../components/CharacterIcon';
 
 export default function QuestionPage() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -19,25 +20,19 @@ export default function QuestionPage() {
   };
 
   return (
-    <div className="bg-background flex min-h-screen items-center justify-center p-4">
-      <Card className="flex h-150 w-md flex-col justify-between p-10">
+    <div className="bg-background flex min-h-screen items-center justify-center">
+      <Card className="flex flex-col items-center gap-8">
         <ProgressBar value={currentStep} max={5} />
 
-        <div className="flex flex-1 flex-col items-center justify-center gap-10">
-          <img
-            src="/src/assets/Icon.webp"
-            alt="Hamster"
-            className="h-32.5 w-32.5 object-contain"
-          />
+        <CharacterIcon type="hamster" />
 
-          <div className="space-y-3 text-center">
-            <span className="text-primary block text-2xl font-bold">
-              Q{currentStep}.
-            </span>
-            <h2 className="text-text-heading text-2xl leading-relaxed font-bold whitespace-pre-wrap">
-              {currentData.text}
-            </h2>
-          </div>
+        <div className="flex flex-1 flex-col items-center justify-center gap-2">
+          <span className="text-text-heading text-2xl font-medium">
+            Q{currentStep}.
+          </span>
+          <h2 className="text-text-description text-base leading-relaxed font-normal whitespace-pre-wrap">
+            {currentData.text}
+          </h2>
         </div>
 
         <div className="mb-4 flex w-full flex-col gap-4">
@@ -46,7 +41,7 @@ export default function QuestionPage() {
               key={index}
               label={option.text}
               variant="default"
-              className="py-5 text-base"
+              className="text-base"
               onClick={handleNext}
             />
           ))}
