@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router';
 import { generateCharacterData } from '../lib/characterData.js';
