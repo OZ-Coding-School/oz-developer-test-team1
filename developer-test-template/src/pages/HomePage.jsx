@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router';
+import { generateCharacterData } from '../lib/utils';
 
-const CHARACTER_DATA = [...Array(10)].map(() => ({
-  left: `${Math.random() * 100}%`,
-  top: `${Math.random() * 100}%`,
-  duration: `${Math.random() * 3 + 2}s`,
-}));
+const CHARACTER_DATA = generateCharacterData(10);
 
-// 애니메이션 (변수 분리)
 const FallingCharacters = () => {
-  const icons = ['🐌', '🐨', '🐥', '🐝', '❄️'];
+  const characterImages = [
+    'ai.webp',
+    'backend.webp',
+    'data.webp',
+    'devops.webp',
+    'frontend.webp',
+    'fullstack.webp',
+    'gamedev.webp',
+    'mobile.webp',
+  ];
+
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
       {CHARACTER_DATA.map((data, i) => (
@@ -20,11 +26,14 @@ const FallingCharacters = () => {
           style={{
             left: data.left,
             top: data.top,
-            fontSize: '40px',
             animationDuration: data.duration,
           }}
         >
-          {icons[i % icons.length]}
+          <img
+            src={`/src/assets/characters/${characterImages[i % characterImages.length]}`}
+            alt="character"
+            className="h-16 w-16 object-contain"
+          />
         </div>
       ))}
     </div>
@@ -38,6 +47,7 @@ export default function HomePage() {
 
   const handleStart = () => {
     setIsExiting(true);
+    //페이지 전환 0.6초 딜레이
     setTimeout(() => navigate('/question'), 600);
   };
 
@@ -48,7 +58,9 @@ export default function HomePage() {
 
       {/* 메인 카드 컨테이너 */}
       <div
-        className={`relative flex h-[660px] w-[350px] flex-col items-center justify-between overflow-hidden rounded-[44px] bg-white p-10 shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-700 ease-in-out ${isExiting ? '-translate-y-40 opacity-0' : 'translate-y-0 opacity-100'}`}
+        className={`relative flex h-165 w-[340px] flex-col items-center justify-between overflow-hidden rounded-[24px] bg-white p-10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] transition-all duration-700 ease-in-out ${
+          isExiting ? '-translate-y-40 opacity-0' : 'translate-y-0 opacity-100'
+        }`}
       >
         {/* 상단 구역 */}
         <div className="flex w-full flex-col items-center">
