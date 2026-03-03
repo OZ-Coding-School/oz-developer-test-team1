@@ -101,6 +101,7 @@ export default function HomePage() {
             label="시작하기"
             variant="primary"
             size="small"
+            className="justify-center"
             onClick={handleStart}
           >
             <Icon name="start" />
