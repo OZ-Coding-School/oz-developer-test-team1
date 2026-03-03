@@ -55,19 +55,19 @@ export default function HomePage() {
 
   return (
     /* 배경 */
-    <div className="from-background relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-b to-white p-4">
+    <div className="from-background relative flex min-h-screen items-center justify-center overflow-hidden bg-linear-to-b to-white p-4">
       <FallingCharacters />
 
       {/* 메인 카드 컨테이너 */}
       <div
-        className={`relative flex h-165 w-85 flex-col items-center justify-between overflow-hidden rounded-3xl bg-white p-10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] transition-all duration-700 ease-in-out ${
+        className={`relative flex w-85 flex-col items-center justify-between gap-8 overflow-hidden rounded-3xl bg-white p-10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] transition-all duration-700 ease-in-out ${
           isExiting ? '-translate-y-40 opacity-0' : 'translate-y-0 opacity-100'
         }`}
       >
         {/* 상단 구역 */}
-        <div className="flex w-full flex-col items-center">
+        <div className="flex w-full flex-col items-center gap-8">
           {/* 캐릭터 이미지 */}
-          <div className="flex h-45 animate-bounce items-center justify-center">
+          <div className="flex animate-bounce items-center justify-center">
             <CharacterIcon type="hamster" />
           </div>
 
@@ -84,7 +84,7 @@ export default function HomePage() {
           </div>
 
           {/* 안내 박스 */}
-          <div className="bg-background mt-10 mb-8 flex h-24 w-full items-center justify-center rounded-[28px]">
+          <div className="bg-background flex w-full items-center justify-center rounded-[14px] p-4">
             {/* 안내 문구 */}
             <p className="text-text-body text-center text-sm leading-tight">
               ✨ 5개의 질문으로 알아보는
@@ -95,14 +95,16 @@ export default function HomePage() {
         </div>
 
         {/* 하단 구역 */}
-        <div className="mb-2 flex w-full flex-col items-center gap-8">
+        <div className="flex w-full flex-col items-center gap-8">
           {/* 시작하기 버튼 */}
           <Button
             label="시작하기"
             variant="primary"
             size="small"
-            onClick={() => navigate('/question')}
-          />
+            onClick={handleStart}
+          >
+            <Icon name="start" />
+          </Button>
 
           {/* 푸터 로고 */}
           <p className="text-text-muted text-[10px] font-normal tracking-widest uppercase">
