@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router';
-import { generateCharacterData } from '../lib/utils';
+import { generateCharacterData } from '../lib/characterData.js';
 
 const CHARACTER_DATA = generateCharacterData(10);
 
