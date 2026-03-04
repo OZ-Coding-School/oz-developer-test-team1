@@ -1,18 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import Card from '../components/Card';
 import ProgressBar from '../components/ProgressBar';
 import Button from '../components/Button';
-import questionList from '../mocks/data/question';
 import CharacterIcon from '../components/CharacterIcon';
+import { getQuestions } from '../api/services/questions';
 
 export default function QuestionPage() {
+  const [questions, setQuestions] = useState([]);
   const [currentStep, setCurrentStep] = useState(1);
   const navigate = useNavigate();
-  const currentData = questionList[currentStep - 1];
+
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const data = await getQuestions();
+        setQuestions(data);
+      } catch (err) {
+        console.error('데이터 로드 실패:', err);
+      }
+    };
+    fetchQuestions();
+  }, []);
+
+  if (questions.length === 0) return null;
+
+  const currentData = questions[currentStep - 1];
+  const totalSteps = questions.length;
 
   const handleNext = () => {
-    if (currentStep < 5) {
+    if (currentStep < totalSteps) {
       setCurrentStep((prev) => prev + 1);
     } else {
       navigate('/result');
@@ -22,7 +39,7 @@ export default function QuestionPage() {
   return (
     <div className="bg-background flex min-h-screen items-center justify-center">
       <Card className="flex flex-col items-center gap-8">
-        <ProgressBar value={currentStep} max={5} />
+        <ProgressBar value={currentStep} max={totalSteps} />
 
         <CharacterIcon type="hamster" />
 
@@ -31,7 +48,7 @@ export default function QuestionPage() {
             Q{currentStep}.
           </span>
           <h2 className="text-text-description text-base leading-relaxed font-normal whitespace-pre-wrap">
-            {currentData.text}
+            {currentData.question || currentData.text}
           </h2>
         </div>
 

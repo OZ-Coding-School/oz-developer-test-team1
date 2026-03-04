@@ -7,8 +7,12 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/question/:id" element={<QuestionPage />} />
-      <Route path="/result" element={null} /> {/* 결과페이지로 연결되는곳 */}
+
+      {/* 질문페이지로 연결되는곳 */}
+      <Route path="/question" element={<QuestionPage />} />
+
+      {/* 결과페이지로 연결되는곳 */}
+      <Route path="/result" element={null} />
     </Routes>
   );
 }
