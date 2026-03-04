@@ -13,7 +13,7 @@ function App() {
       <Route path="/question" element={<QuestionPage />} />
 
       {/* 결과페이지로 연결되는곳 */}
-      <Route path="/result" element={null} />
+      <Route path="/result" element={<ResultPage />} />
     </Routes>
   );
 }
