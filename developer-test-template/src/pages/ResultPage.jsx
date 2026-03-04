@@ -64,46 +64,51 @@ export default function ResultPage() {
         </section>
 
         {/* 해시태그 */}
-        <div className="mx-auto flex w-full max-w-[384px] justify-center">
-          <Badge tags={result.hashtags} />
+        <div className="mx-auto w-full max-w-[384px]">
+          <div className="flex flex-wrap justify-center gap-2">
+            <Badge tags={result.hashtags} />
+          </div>
         </div>
 
         {/* 특징 */}
         <section className="bg-background space-y-3 rounded-2xl px-5 py-6 text-left">
-          <h3 className="text-text-heading text-center font-semibold">
+          <h3 className="text-text-heading text-center text-[16px] leading-[24px] font-medium tracking-[-0.31px]">
             나의 특징
           </h3>
+
           <ul className="space-y-2">
             {result.features.map((feature, idx) => (
-              <li key={idx} className="text-text-body flex gap-2">
+              <li key={idx} className="flex gap-2">
                 <span className="text-primary">•</span>
-                <span>{feature}</span>
+                <span className="text-text-body text-[14px] leading-[22px] font-normal">
+                  {feature}
+                </span>
               </li>
             ))}
           </ul>
         </section>
 
         {/* 버튼 */}
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col gap-4">
+          <Button
+            size="large"
+            variant="primary"
+            onClick={handleShare}
+            className="flex w-full items-center justify-center gap-2"
+          >
             <Icon name="share" />
-            <Button
-              label="결과 공유하기"
-              size="large"
-              variant="primary"
-              onClick={handleShare}
-            />
-          </div>
+            결과 공유하기
+          </Button>
 
-          <div className="flex items-center gap-2">
+          <Button
+            size="large"
+            variant="secondary"
+            onClick={handleRestart}
+            className="flex w-full items-center justify-center gap-2"
+          >
             <Icon name="refresh" />
-            <Button
-              label="다시 테스트하기"
-              size="large"
-              variant="secondary"
-              onClick={handleRestart}
-            />
-          </div>
+            다시 테스트하기
+          </Button>
         </div>
       </Card>
     </main>

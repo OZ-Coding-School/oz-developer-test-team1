@@ -1,12 +1,12 @@
 function Badge({ tags }) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap justify-center gap-2">
       {tags.map((tag) => (
         <div
           key={tag}
-          className="bg-background flex items-center rounded-full px-3 py-[6px]"
+          className="bg-background flex h-[28px] items-center rounded-full px-2"
         >
-          <span className="font-inter text-primary text-sm leading-5 font-medium tracking-[-0.15px]">
+          <span className="text-primary text-[14px] leading-[20px] font-normal tracking-[-0.15px]">
             #{tag}
           </span>
         </div>
