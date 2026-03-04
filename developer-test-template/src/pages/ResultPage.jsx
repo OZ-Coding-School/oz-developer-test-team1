@@ -33,13 +33,13 @@ export default function ResultPage() {
 
   return (
     <main className="flex min-h-screen justify-center bg-gray-50 py-10">
-      <Card className="w-[420px] space-y-8 text-center">
+      <Card className="w-105 space-y-8 text-center">
         {/* 타이틀 */}
         <section className="space-y-1">
-          <p className="text-text-description text-center text-[20px] leading-[30px] font-medium tracking-[-0.45px]">
+          <p className="text-text-description text-center text-xl leading-7 font-medium tracking-[-0.45px]">
             당신의 개발자 유형
           </p>
-          <h1 className="text-primary text-center text-[24px] leading-[32px] font-medium tracking-[0.07px]">
+          <h1 className="text-primary text-center text-2xl leading-8 font-medium tracking-[0.07px]">
             {result.type}
           </h1>
         </section>
@@ -49,22 +49,22 @@ export default function ResultPage() {
           <img
             src={frontendCharacter}
             alt="프론트엔드 벌 캐릭터"
-            className="h-[180px] w-[180px]"
+            className="h-45 w-45"
           />
         </div>
 
         {/* 설명 */}
         <section className="space-y-2">
-          <h2 className="text-text-heading text-center text-[18px] leading-[28px] font-medium tracking-[-0.44px]">
+          <h2 className="text-text-heading text-center text-lg leading-7 font-medium tracking-[-0.44px]">
             {result.title}
           </h2>
-          <p className="text-text-description text-center text-[14px] leading-[22.75px] font-normal tracking-[-0.15px]">
+          <p className="text-text-description text-center text-sm leading-[22.75px] font-normal tracking-[-0.15px]">
             {result.description}
           </p>
         </section>
 
         {/* 해시태그 */}
-        <div className="mx-auto w-full max-w-[384px]">
+        <div className="mx-auto w-full max-w-96">
           <div className="flex flex-wrap justify-center gap-2">
             <Badge tags={result.hashtags} />
           </div>
@@ -72,7 +72,7 @@ export default function ResultPage() {
 
         {/* 특징 */}
         <section className="bg-background space-y-3 rounded-2xl px-5 py-6 text-left">
-          <h3 className="text-text-heading text-center text-[16px] leading-[24px] font-medium tracking-[-0.31px]">
+          <h3 className="text-text-heading text-center text-base leading-6 font-medium tracking-[-0.31px]">
             나의 특징
           </h3>
 
@@ -80,7 +80,7 @@ export default function ResultPage() {
             {result.features.map((feature, idx) => (
               <li key={idx} className="flex gap-2">
                 <span className="text-primary">•</span>
-                <span className="text-text-body text-[14px] leading-[22px] font-normal">
+                <span className="text-text-body text-sm leading-6 font-normal">
                   {feature}
                 </span>
               </li>
